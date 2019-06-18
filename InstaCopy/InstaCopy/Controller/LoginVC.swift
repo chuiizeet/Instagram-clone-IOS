@@ -57,13 +57,27 @@ class LoginVC: UIViewController {
         attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 154/255, blue: 237/255, alpha: 1)]))
         
         button.setAttributedTitle(attributedTitle, for: .normal)
+        
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        
         return button
+
     }()
+    
+    @objc func handleShowSignUp() {
+        let signUpVV = SignUpVC()
+        navigationController?.pushViewController(signUpVV, animated: true)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Background Color
         view.backgroundColor = .white
+        
+        // Hide nav bar
+        navigationController?.navigationBar.isHidden = true
         
         view.addSubview(logoContainer)
         logoContainer.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 150)

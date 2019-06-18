@@ -13,6 +13,7 @@
 		8850B02722B8435A004A84DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8850B02522B8435A004A84DD /* LaunchScreen.storyboard */; };
 		8850B03222B843FC004A84DD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850B03122B843FC004A84DD /* LoginVC.swift */; };
 		8850B03522B84834004A84DD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850B03422B84834004A84DD /* Extensions.swift */; };
+		88A7ACA822B98BEF00D277CD /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A7ACA722B98BEF00D277CD /* SignUpVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8850B02822B8435A004A84DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8850B03122B843FC004A84DD /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		8850B03422B84834004A84DD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		88A7ACA722B98BEF00D277CD /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				8850B03122B843FC004A84DD /* LoginVC.swift */,
+				88A7ACA722B98BEF00D277CD /* SignUpVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A7ACA822B98BEF00D277CD /* SignUpVC.swift in Sources */,
 				8850B03222B843FC004A84DD /* LoginVC.swift in Sources */,
 				8850B03522B84834004A84DD /* Extensions.swift in Sources */,
 				8850B01D22B84350004A84DD /* AppDelegate.swift in Sources */,
