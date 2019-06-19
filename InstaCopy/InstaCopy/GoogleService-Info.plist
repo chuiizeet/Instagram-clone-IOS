@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>816787378735-a8hia9aka36khidpug3uajfli9id241h.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.816787378735-a8hia9aka36khidpug3uajfli9id241h</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCysU3G8drKYY-PRS-SZ0Eozk3CcRkxuWQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>816787378735</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.JeguLabs.InstaCopy</string>
+	<key>PROJECT_ID</key>
+	<string>instagracopy</string>
+	<key>STORAGE_BUCKET</key>
+	<string>instagracopy.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:816787378735:ios:3ee7bb1ecd5bb39f</string>
+	<key>DATABASE_URL</key>
+	<string>https://instagracopy.firebaseio.com</string>
+</dict>
+</plist>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpVC: UIViewController {
     
@@ -22,15 +23,18 @@ class SignUpVC: UIViewController {
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(formValidation), for: .editingChanged)
         return tf
     }()
     
     let passwordTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Password"
+        tf.isSecureTextEntry = true
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(formValidation), for: .editingChanged)
         return tf
     }()
     
@@ -57,8 +61,11 @@ class SignUpVC: UIViewController {
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor(red: 149/255, green: 204/255, blue: 244/255, alpha: 1)
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 5        
+        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+        
         return button
+
     }()
     
     let alreadyHaveAccountButton: UIButton = {
@@ -76,6 +83,44 @@ class SignUpVC: UIViewController {
     
     @objc func handleShowLogIn() {
         _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func handleSignUp() {
+        
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        print(email,password)
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            // Handle error
+            if let error = error {
+                print("Failed to create user: ", error.localizedDescription)
+                return
+            }
+            
+            // success
+            print("Successfully created user with Firebase")
+        }
+    }
+    
+    @objc func formValidation() {
+        
+        
+        guard
+            emailTextField.hasText,
+            passwordTextField.hasText else {
+                
+                signUpButton.isEnabled = false
+                signUpButton.backgroundColor = UIColor(red: 149/255, green: 204/255, blue: 244/255, alpha: 1)
+                return
+        }
+        
+        signUpButton.isEnabled = true
+        signUpButton.backgroundColor = UIColor(red: 17/255, green: 154/255, blue: 237/255, alpha: 1)
+        
+        
+    
     }
 
     override func viewDidLoad() {
