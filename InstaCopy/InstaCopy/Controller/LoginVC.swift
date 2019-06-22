@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
     
@@ -30,6 +31,7 @@ class LoginVC: UIViewController {
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(formValidation), for: .editingChanged)
         return tf
     }()
     
@@ -39,6 +41,8 @@ class LoginVC: UIViewController {
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.isSecureTextEntry = true
+        tf.addTarget(self, action: #selector(formValidation), for: .editingChanged)
         return tf
     }()
     
@@ -48,6 +52,8 @@ class LoginVC: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor(red: 149/255, green: 204/255, blue: 244/255, alpha: 1)
         button.layer.cornerRadius = 5
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -67,6 +73,50 @@ class LoginVC: UIViewController {
     @objc func handleShowSignUp() {
         let signUpVV = SignUpVC()
         navigationController?.pushViewController(signUpVV, animated: true)
+        
+    }
+    
+    @objc func handleLogin() {
+        
+        // Properties
+        guard
+            let email = emailTextField.text,
+            let password = passwordTextField.text else { return }
+        
+        // Sign user
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            
+            // Handle error
+            if let error =  error {
+                print("Unable to sign user in, error: ", error.localizedDescription)
+                return
+            }
+            
+            // Handle success
+            print("Successfully signed user in")
+            
+            let mainTabVC = MainTabVC()
+            self.present(mainTabVC, animated: true, completion: nil)
+        }
+        
+    }
+    
+    @objc func formValidation() {
+        
+        // Ensures that email/pass tf have text
+        guard
+            emailTextField.hasText,
+            passwordTextField.hasText else {
+                
+                // Handle case for above condition
+                loginButton.isEnabled = false
+                loginButton.backgroundColor = UIColor(red: 149/255, green: 204/255, blue: 244/255, alpha: 1)
+                return
+        }
+        
+        // Handle case for conditions were met
+        loginButton.isEnabled = true
+        loginButton.backgroundColor = UIColor(red: 17/255, green: 154/255, blue: 237/255, alpha: 1)
         
     }
     
