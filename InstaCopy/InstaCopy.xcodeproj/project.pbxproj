@@ -118,14 +118,13 @@
 		8850B03022B843E2004A84DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8850B03122B843FC004A84DD /* LoginVC.swift */,
-				88A7ACA722B98BEF00D277CD /* SignUpVC.swift */,
+				88D2D68922BF60AD001ADA62 /* UserProfile */,
+				88D2D68822BF60A1001ADA62 /* Notifications */,
+				88D2D68722BF6095001ADA62 /* UploadPost */,
+				88D2D68622BF607F001ADA62 /* Search */,
+				88D2D68522BF6072001ADA62 /* Feed */,
+				88D2D68422BF6061001ADA62 /* Login */,
 				88D2D67822BDBA9E001ADA62 /* MainTabVC.swift */,
-				88D2D67A22BDEB13001ADA62 /* FeedVC.swift */,
-				88D2D67C22BDEB2F001ADA62 /* SearchVC.swift */,
-				88D2D67E22BDEB4F001ADA62 /* UploadPostVC.swift */,
-				88D2D68022BDEB7C001ADA62 /* NotificationsVC.swift */,
-				88D2D68222BDEB96001ADA62 /* UserProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -136,6 +135,55 @@
 				8850B03422B84834004A84DD /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		88D2D68422BF6061001ADA62 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8850B03122B843FC004A84DD /* LoginVC.swift */,
+				88A7ACA722B98BEF00D277CD /* SignUpVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		88D2D68522BF6072001ADA62 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				88D2D67A22BDEB13001ADA62 /* FeedVC.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		88D2D68622BF607F001ADA62 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				88D2D67C22BDEB2F001ADA62 /* SearchVC.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		88D2D68722BF6095001ADA62 /* UploadPost */ = {
+			isa = PBXGroup;
+			children = (
+				88D2D67E22BDEB4F001ADA62 /* UploadPostVC.swift */,
+			);
+			path = UploadPost;
+			sourceTree = "<group>";
+		};
+		88D2D68822BF60A1001ADA62 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				88D2D68022BDEB7C001ADA62 /* NotificationsVC.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		88D2D68922BF60AD001ADA62 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				88D2D68222BDEB96001ADA62 /* UserProfileVC.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		C62ABC848289477BE960EE47 /* Pods */ = {

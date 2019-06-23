@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabVC: UITabBarController, UITabBarControllerDelegate {
 
@@ -16,8 +17,11 @@ class MainTabVC: UITabBarController, UITabBarControllerDelegate {
         // Delegate
         self.delegate = self
         
+        // Config view controllers
         configureViewControllers()
         
+        // User validation
+        checkIfUserIsLoggedIn()
 
     }
     
@@ -53,10 +57,20 @@ class MainTabVC: UITabBarController, UITabBarControllerDelegate {
         // Construct nav controller
         let navController = UINavigationController(rootViewController: rootViewController)
         navController.tabBarItem.image = unselectedImage
-        navController.tabBarItem.image = selectedImage
-        navController.navigationBar.barTintColor = .black
+        navController.tabBarItem.selectedImage = selectedImage
+        navController.navigationBar.barTintColor = .white
         
         return navController
+        
+    }
+    
+    func checkIfUserIsLoggedIn() {
+        
+        if Auth.auth().currentUser == nil {
+            print("No current user")
+        } else {
+            print("User is loggin")
+        }
         
     }
 
