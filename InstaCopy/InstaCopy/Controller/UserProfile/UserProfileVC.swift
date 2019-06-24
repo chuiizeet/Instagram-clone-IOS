@@ -15,6 +15,8 @@ private let headerIdentifier = "UserProfileHeader"
 class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     // MARK: Properties
+    
+    var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,6 @@ class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLay
         // Fetch user data
         fetchCurrentUserData()
     }
-
 
     // MARK: UICollectionViewDataSource
 
@@ -55,6 +56,17 @@ class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLay
         // Declare Header
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! UserProfileHeader
         
+        // Set user header
+        let currentUid = Auth.auth().currentUser?.uid
+        
+        Database.database().reference().child("users").child(currentUid!).observeSingleEvent(of: .value) { (snapshot) in
+            
+            guard let dictionary = snapshot.value as? Dictionary<String, AnyObject> else { return }
+            let uid = snapshot.key
+            let user = User(uid: uid, dictionary: dictionary)
+            self.navigationItem.title = user.username
+            header.user = user
+        }
         return header
         
     }
@@ -63,6 +75,7 @@ class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLay
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
         // Configure the cell
+        
     
         return cell
     }
@@ -71,16 +84,8 @@ class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLay
     
     func fetchCurrentUserData() {
         
-        guard let currentUid = Auth.auth().currentUser?.uid else { return }
-        
-        Database.database().reference().child("users").child(currentUid).child("username").observeSingleEvent(of: .value) { (snapshot) in
-            
-            guard let username = snapshot.value as? String else { return }
-            
-            self.navigationItem.title = username
+
         }
-        
-    }
 
 
 }
