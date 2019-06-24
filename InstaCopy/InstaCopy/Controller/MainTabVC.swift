@@ -67,9 +67,14 @@ class MainTabVC: UITabBarController, UITabBarControllerDelegate {
     func checkIfUserIsLoggedIn() {
         
         if Auth.auth().currentUser == nil {
-            print("No current user")
-        } else {
-            print("User is loggin")
+            DispatchQueue.main.async {
+                // Present login controller
+                let loginVC = LoginVC()
+                let navController = UINavigationController(rootViewController: loginVC)
+                self.present(navController, animated: true, completion: nil)
+            }
+            
+            return
         }
         
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 private let reuseIdentifier = "Cell"
 
@@ -51,8 +52,35 @@ class FeedVC: UICollectionViewController {
     }
     
     @objc func handleLogout() {
-        print("Logout")
+        
+        // Declare alert controller
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        // Add alert action
+        alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
+            
+            do {
+                
+                // Attemp sign out
+                try Auth.auth().signOut()
+                
+                // Present login controller
+                let loginVC = LoginVC()
+                let navController = UINavigationController(rootViewController: loginVC)
+                self.present(navController, animated: true, completion: nil)
+                
+                print("Successfully log out user")
+                
+            } catch {
+                
+                // Handle error
+                print("Failed to sign out")
+            }
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
+        
     }
-
 
 }
