@@ -22,6 +22,7 @@
 		88D2D67F22BDEB4F001ADA62 /* UploadPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D2D67E22BDEB4F001ADA62 /* UploadPostVC.swift */; };
 		88D2D68122BDEB7C001ADA62 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D2D68022BDEB7C001ADA62 /* NotificationsVC.swift */; };
 		88D2D68322BDEB96001ADA62 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D2D68222BDEB96001ADA62 /* UserProfileVC.swift */; };
+		88D2D68B22C089EF001ADA62 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D2D68A22C089EF001ADA62 /* UserProfileHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		88D2D67E22BDEB4F001ADA62 /* UploadPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostVC.swift; sourceTree = "<group>"; };
 		88D2D68022BDEB7C001ADA62 /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
 		88D2D68222BDEB96001ADA62 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
+		88D2D68A22C089EF001ADA62 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		DD9986B900FB562311218FB6 /* Pods-InstaCopy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaCopy.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaCopy/Pods-InstaCopy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				88D2D68222BDEB96001ADA62 /* UserProfileVC.swift */,
+				88D2D68A22C089EF001ADA62 /* UserProfileHeader.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D2D68B22C089EF001ADA62 /* UserProfileHeader.swift in Sources */,
 				88D2D67B22BDEB13001ADA62 /* FeedVC.swift in Sources */,
 				88D2D68122BDEB7C001ADA62 /* NotificationsVC.swift in Sources */,
 				88D2D67F22BDEB4F001ADA62 /* UploadPostVC.swift in Sources */,
