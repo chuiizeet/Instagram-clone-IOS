@@ -31,6 +31,8 @@ class SearchVC: UITableViewController {
         
         // Fetch users
         fetchUsers()
+        
+        
     }
 
     // MARK: - Table view data source
@@ -50,7 +52,15 @@ class SearchVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let user = users[indexPath.row]
-        print("The username is: \(user.username)")
+        
+        // Instance of user profile VC
+        let userProfileVC = UserProfileVC(collectionViewLayout: UICollectionViewFlowLayout())
+        
+        // Passes user from search to userProfileVC
+        userProfileVC.userToLoadFromSearchVC = user
+        
+        // Push view controller
+        navigationController?.pushViewController(userProfileVC, animated: true)
         
     }
     

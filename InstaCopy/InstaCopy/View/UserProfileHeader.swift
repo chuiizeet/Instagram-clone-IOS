@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
 class UserProfileHeader: UICollectionViewCell {
     
     var user: User? {
         
         didSet {
+            
+            // Configure edit profile button
+            configureEditProfileFollowButton()
             
             let fullname = user?.name
             nameLabel.text = fullname
@@ -69,9 +73,9 @@ class UserProfileHeader: UICollectionViewCell {
         return label
     }()
     
-    let editProfileButton: UIButton = {
+    let editProfileFollowButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Edit Profile", for: .normal)
+        button.setTitle("Loading", for: .normal)
         button.layer.cornerRadius = 5
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 0.5
@@ -113,8 +117,8 @@ class UserProfileHeader: UICollectionViewCell {
         
         configureUserStats()
         
-        addSubview(editProfileButton)
-        editProfileButton.anchor(top: postLabel.bottomAnchor, left: postLabel.leftAnchor, bottom: nil, right: self.rightAnchor, paddingTop: 12, paddingLeft: 8, paddingBottom: 0, paddingRight: 12, width: 0, height: 30)
+        addSubview(editProfileFollowButton)
+        editProfileFollowButton.anchor(top: postLabel.bottomAnchor, left: postLabel.leftAnchor, bottom: nil, right: self.rightAnchor, paddingTop: 12, paddingLeft: 8, paddingBottom: 0, paddingRight: 12, width: 0, height: 30)
         
         configureBottomToolBar()
         
@@ -152,6 +156,26 @@ class UserProfileHeader: UICollectionViewCell {
         
         addSubview(stackView)
         stackView.anchor(top: topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 12, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 50)
+    }
+    
+    func configureEditProfileFollowButton() {
+        
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        guard let user = self.user else { return }
+        
+        if currentUid == user.uid {
+            
+            // Configure button as edit profile
+            editProfileFollowButton.setTitle("Edit Profile", for: .normal)
+            
+        } else {
+            
+            // Configure button as follow
+            editProfileFollowButton.setTitle("Follow", for: .normal)
+            editProfileFollowButton.setTitleColor(.white, for: .normal)
+            editProfileFollowButton.backgroundColor = UIColor(red: 17/255, green: 154/255, blue: 237/255, alpha: 1)
+        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

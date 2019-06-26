@@ -59,6 +59,7 @@ class MainTabVC: UITabBarController, UITabBarControllerDelegate {
         navController.tabBarItem.image = unselectedImage
         navController.tabBarItem.selectedImage = selectedImage
         navController.navigationBar.barTintColor = .white
+        tabBar.tintColor = .black
         
         return navController
         
