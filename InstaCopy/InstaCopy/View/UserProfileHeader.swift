@@ -170,6 +170,8 @@ class UserProfileHeader: UICollectionViewCell {
             
         } else {
             
+            user.checkIfUserIsFollowed()
+            
             // Configure button as follow
             editProfileFollowButton.setTitle("Follow", for: .normal)
             editProfileFollowButton.setTitleColor(.white, for: .normal)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0729923F0AE9401CFDF6EAAD /* Pods_InstaCopy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C943C917EEC122C44049653 /* Pods_InstaCopy.framework */; };
+		881707E622C6C64E00500886 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881707E522C6C64E00500886 /* constants.swift */; };
 		8850B01D22B84350004A84DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850B01C22B84350004A84DD /* AppDelegate.swift */; };
 		8850B02222B84350004A84DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8850B02022B84350004A84DD /* Main.storyboard */; };
 		8850B02422B8435A004A84DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8850B02322B8435A004A84DD /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		28549A311F0E6E665EC99CBF /* Pods-InstaCopy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaCopy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaCopy/Pods-InstaCopy.debug.xcconfig"; sourceTree = "<group>"; };
 		4C943C917EEC122C44049653 /* Pods_InstaCopy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaCopy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		881707E522C6C64E00500886 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		8850B01922B84350004A84DD /* InstaCopy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaCopy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8850B01C22B84350004A84DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8850B02122B84350004A84DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				8850B03422B84834004A84DD /* Extensions.swift */,
+				881707E522C6C64E00500886 /* constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				88D2D68B22C089EF001ADA62 /* UserProfileHeader.swift in Sources */,
 				88D2D67B22BDEB13001ADA62 /* FeedVC.swift in Sources */,
 				88D2D68122BDEB7C001ADA62 /* NotificationsVC.swift in Sources */,
+				881707E622C6C64E00500886 /* constants.swift in Sources */,
 				88D2D67F22BDEB4F001ADA62 /* UploadPostVC.swift in Sources */,
 				888D390322C297CE00765B06 /* SearchUserCell.swift in Sources */,
 				88D2D68322BDEB96001ADA62 /* UserProfileVC.swift in Sources */,
