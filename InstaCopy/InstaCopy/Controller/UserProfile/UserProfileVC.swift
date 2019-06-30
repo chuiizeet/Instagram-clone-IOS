@@ -12,7 +12,7 @@ import Firebase
 private let reuseIdentifier = "Cell"
 private let headerIdentifier = "UserProfileHeader"
 
-class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UserProfileHeaderDelegate {
     
     // MARK: Properties
     
@@ -61,6 +61,9 @@ class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLay
         // Declare Header
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! UserProfileHeader
         
+        // Set delegate
+        header.delegate = self
+        
         // Set user header
         if let user = self.user {
             header.user = user
@@ -80,6 +83,27 @@ class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLay
         
     
         return cell
+    }
+    
+    // MARK: - UserProfileHeader Protocol
+    
+    func handleEditFollowTapped(for header: UserProfileHeader) {
+        
+        guard let user = header.user else { return }
+
+        if header.editProfileFollowButton.titleLabel?.text == "Edit Profile" {
+            print("Hanle edit profile")
+        } else {
+
+            if header.editProfileFollowButton.titleLabel?.text == "Follow" {
+                header.editProfileFollowButton.setTitle("Following", for: .normal)
+                user.follow()
+            } else {
+                header.editProfileFollowButton.setTitle("Follow", for: .normal)
+                user.unfollow()
+            }
+        }
+        
     }
     
     // MARK: - API

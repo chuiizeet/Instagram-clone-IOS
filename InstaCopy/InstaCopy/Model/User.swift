@@ -36,36 +36,33 @@ class User {
     }
     
     func follow() {
-        
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         
+        // UPDATE: - get uid like this to work with update
         guard let uid = uid else { return }
         
-        // Set is followed to true
+        // set is followed to true
         self.isFollowed = true
         
-        // Add followed user to current user-following struct
-        USER_FOLLOWING_REF.child(currentUid).updateChildValues([self.uid: 1])
+        // add followed user to current user-following structure
+        USER_FOLLOWING_REF.child(currentUid).updateChildValues([uid: 1])
         
-        // Add current user to followed user-follower struct
-        USER_FOLLOWER_REF.child(uid).updateChildValues([self.uid: 1])
+        // add current user to followed user-follower structure
+        USER_FOLLOWER_REF.child(uid).updateChildValues([currentUid: 1])
         
     }
     
     func unfollow() {
-        
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         
+        // UPDATE: - get uid like this to work with update
         guard let uid = uid else { return }
         
-        // Set is followed to false
         self.isFollowed = false
         
-        // Remove from current user-following struc
-        USER_FOLLOWING_REF.child(currentUid).child(self.uid).removeValue()
+        USER_FOLLOWING_REF.child(currentUid).child(uid).removeValue()
         
-        // Remove current user from user-following struc
-        USER_FOLLOWING_REF.child(uid).child(currentUid).removeValue()
+        USER_FOLLOWER_REF.child(uid).child(currentUid).removeValue()
         
     }
     

@@ -11,6 +11,10 @@ import Firebase
 
 class UserProfileHeader: UICollectionViewCell {
     
+    // MARK: - Properties
+    
+    var delegate: UserProfileHeaderDelegate?
+    
     var user: User? {
         
         didSet {
@@ -60,9 +64,6 @@ class UserProfileHeader: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-//        let attributedText = NSMutableAttributedString(string: "0\n", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)])
-//        attributedText.append(NSAttributedString(string: "followers", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray]))
-//        label.attributedText = attributedText
         return label
     }()
     
@@ -70,13 +71,10 @@ class UserProfileHeader: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-//        let attributedText = NSMutableAttributedString(string: "0\n", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)])
-//        attributedText.append(NSAttributedString(string: "following", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray]))
-//        label.attributedText = attributedText
         return label
     }()
     
-    let editProfileFollowButton: UIButton = {
+    lazy var editProfileFollowButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Loading", for: .normal)
         button.layer.cornerRadius = 5
@@ -84,6 +82,7 @@ class UserProfileHeader: UICollectionViewCell {
         button.layer.borderWidth = 0.5
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(handleEditProfileFollow), for: .touchUpInside)
         return button
     }()
     
@@ -108,23 +107,10 @@ class UserProfileHeader: UICollectionViewCell {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        addSubview(profileImageView)
-        profileImageView.anchor(top: self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, paddingTop: 16, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 80, height: 80)
-        profileImageView.layer.cornerRadius = 80 / 2
-        
-        addSubview(nameLabel)
-        nameLabel.anchor(top: profileImageView.bottomAnchor, left: self.leftAnchor, bottom: nil, right: nil, paddingTop: 12, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-        
-        configureUserStats()
-        
-        addSubview(editProfileFollowButton)
-        editProfileFollowButton.anchor(top: postLabel.bottomAnchor, left: postLabel.leftAnchor, bottom: nil, right: self.rightAnchor, paddingTop: 12, paddingLeft: 8, paddingBottom: 0, paddingRight: 12, width: 0, height: 30)
-        
-        configureBottomToolBar()
-        
+    // MARK: - Handlers
+    
+    @objc func handleEditProfileFollow() {
+        delegate?.handleEditFollowTapped(for: self)
     }
     
     func configureBottomToolBar() {
@@ -162,6 +148,7 @@ class UserProfileHeader: UICollectionViewCell {
     }
     
     func setUserStatus(for user: User?) {
+
         
         guard let uid = user?.uid else { return }
         
@@ -226,6 +213,27 @@ class UserProfileHeader: UICollectionViewCell {
             }
             
         }
+        
+    }
+    
+    // MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        addSubview(profileImageView)
+        profileImageView.anchor(top: self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, paddingTop: 16, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 80, height: 80)
+        profileImageView.layer.cornerRadius = 80 / 2
+        
+        addSubview(nameLabel)
+        nameLabel.anchor(top: profileImageView.bottomAnchor, left: self.leftAnchor, bottom: nil, right: nil, paddingTop: 12, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        
+        configureUserStats()
+        
+        addSubview(editProfileFollowButton)
+        editProfileFollowButton.anchor(top: postLabel.bottomAnchor, left: postLabel.leftAnchor, bottom: nil, right: self.rightAnchor, paddingTop: 12, paddingLeft: 8, paddingBottom: 0, paddingRight: 12, width: 0, height: 30)
+        
+        configureBottomToolBar()
         
     }
     
