@@ -30,39 +30,38 @@ class FollowCell: UITableViewCell {
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         
+        // Add profile image view
         addSubview(profileImageView)
-        profileImageView.anchor(top: self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, paddingTop: 16, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 48, height: 48)
+        profileImageView.anchor(top: nil, left: leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 48, height: 48)
+        profileImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         profileImageView.layer.cornerRadius = 48 / 2
+        profileImageView.clipsToBounds = true
         
         addSubview(followButton)
         followButton.anchor(top: nil, left: nil, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 12, width: 90, height: 30)
         followButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         followButton.layer.cornerRadius = 3
         
-        textLabel?.text = "Username"
+        self.textLabel?.text = "Username"
+        self.detailTextLabel?.text = "Full name"
         
-        detailTextLabel?.text = "Full name"
-        
-    }
-    
-    // MARK: - Handlers
-    
-    @objc func handleFollowTapped() {
-        print("Handle follow button")
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        textLabel?.frame = CGRect(x: 68, y: (textLabel?.frame.origin.y)! - 2, width: (textLabel?.frame.width)!, height: (textLabel?.frame.height)!)
+
+        textLabel?.frame = CGRect(x: 68, y: textLabel!.frame.origin.y - 2, width: (textLabel?.frame.width)!, height: (textLabel?.frame.height)!)
         textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         
-        detailTextLabel?.frame = CGRect(x: 68, y: (detailTextLabel?.frame.origin.y)!, width: self.frame.width - 100, height: (detailTextLabel?.frame.height)!)
+        detailTextLabel?.frame = CGRect(x: 68, y: detailTextLabel!.frame.origin.y, width: self.frame.width - 108, height: detailTextLabel!.frame.height)
         detailTextLabel?.textColor = .lightGray
         detailTextLabel?.font = UIFont.systemFont(ofSize: 12)
-        
+    }
+    
+    @objc func handleFollowTapped() {
+        print("Handle follow button")
     }
     
     required init?(coder aDecoder: NSCoder) {

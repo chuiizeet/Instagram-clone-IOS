@@ -52,6 +52,7 @@ class FollowVC: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! FollowCell
         
+        
         return cell
         
     }
