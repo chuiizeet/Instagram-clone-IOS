@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0729923F0AE9401CFDF6EAAD /* Pods_InstaCopy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C943C917EEC122C44049653 /* Pods_InstaCopy.framework */; };
+		8805CE2422C9869B0041C47D /* FollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805CE2322C9869B0041C47D /* FollowCell.swift */; };
 		881707E622C6C64E00500886 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881707E522C6C64E00500886 /* Constants.swift */; };
 		883B936922C7FA7F00E7CC3A /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B936822C7FA7F00E7CC3A /* Protocols.swift */; };
+		883B936B22C8465400E7CC3A /* FollowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B936A22C8465400E7CC3A /* FollowVC.swift */; };
 		8850B01D22B84350004A84DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850B01C22B84350004A84DD /* AppDelegate.swift */; };
 		8850B02222B84350004A84DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8850B02022B84350004A84DD /* Main.storyboard */; };
 		8850B02422B8435A004A84DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8850B02322B8435A004A84DD /* Assets.xcassets */; };
@@ -32,8 +34,10 @@
 /* Begin PBXFileReference section */
 		28549A311F0E6E665EC99CBF /* Pods-InstaCopy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaCopy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaCopy/Pods-InstaCopy.debug.xcconfig"; sourceTree = "<group>"; };
 		4C943C917EEC122C44049653 /* Pods_InstaCopy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaCopy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8805CE2322C9869B0041C47D /* FollowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowCell.swift; sourceTree = "<group>"; };
 		881707E522C6C64E00500886 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		883B936822C7FA7F00E7CC3A /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		883B936A22C8465400E7CC3A /* FollowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowVC.swift; sourceTree = "<group>"; };
 		8850B01922B84350004A84DD /* InstaCopy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaCopy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8850B01C22B84350004A84DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8850B02122B84350004A84DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 			children = (
 				88D2D68A22C089EF001ADA62 /* UserProfileHeader.swift */,
 				888D390222C297CE00765B06 /* SearchUserCell.swift */,
+				8805CE2322C9869B0041C47D /* FollowCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				88D2D68222BDEB96001ADA62 /* UserProfileVC.swift */,
+				883B936A22C8465400E7CC3A /* FollowVC.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -342,10 +348,12 @@
 				88D2D67B22BDEB13001ADA62 /* FeedVC.swift in Sources */,
 				88D2D68122BDEB7C001ADA62 /* NotificationsVC.swift in Sources */,
 				881707E622C6C64E00500886 /* Constants.swift in Sources */,
+				883B936B22C8465400E7CC3A /* FollowVC.swift in Sources */,
 				88D2D67F22BDEB4F001ADA62 /* UploadPostVC.swift in Sources */,
 				888D390322C297CE00765B06 /* SearchUserCell.swift in Sources */,
 				88D2D68322BDEB96001ADA62 /* UserProfileVC.swift in Sources */,
 				88A7ACA822B98BEF00D277CD /* SignUpVC.swift in Sources */,
+				8805CE2422C9869B0041C47D /* FollowCell.swift in Sources */,
 				8850B03222B843FC004A84DD /* LoginVC.swift in Sources */,
 				8850B03522B84834004A84DD /* Extensions.swift in Sources */,
 				888D390122C169EE00765B06 /* User.swift in Sources */,
@@ -501,6 +509,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U6484T76QK;
 				INFOPLIST_FILE = InstaCopy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,6 +529,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U6484T76QK;
 				INFOPLIST_FILE = InstaCopy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
